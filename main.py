@@ -41,7 +41,7 @@ except Exception as e:
 # Crear tabla si no existe en PostgreSQL
 try:
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS transactions_diana_arias (
+    CREATE TABLE IF NOT EXISTS transactions_darias (
         id SERIAL PRIMARY KEY,
         transaction_json JSONB,
         logistic_regression_fraud REAL,
@@ -160,7 +160,7 @@ async def process_transaction(transaction_data):
 
         # Almacenar la transacción en la base de datos
         cursor.execute("""
-            INSERT INTO transactions_diana_arias (
+            INSERT INTO transactions_darias (
                 transaction_json,
                 logistic_regression_fraud, logistic_regression_non_fraud,
                 kneighbors_fraud, kneighbors_non_fraud,
